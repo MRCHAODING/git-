@@ -1,0 +1,458 @@
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git reflog
+8a8c7d3 (HEAD -> master) HEAD@{0}: commit: second commit
+f082b20 HEAD@{1}: commit (initial): first commit
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git log
+commit 8a8c7d35b6af59c341c3d542ad721b05a2479eef (HEAD -> master)
+Author: dc <dingchao2002415@126.com>
+Date:   Fri Mar 25 19:14:26 2022 +0800
+
+    second commit
+
+commit f082b201556923c17566fe3e108721f17d103e91
+Author: dc <dingchao2002415@126.com>
+Date:   Fri Mar 25 19:05:13 2022 +0800
+
+    first commit
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git reset --hard^C
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git reset --
+--hard                 --no-...               --quiet
+--intent-to-add        --no-quiet             --recurse-submodules
+--keep                 --patch                --soft
+--merge                --pathspec-file-nul    --stdin
+--mixed                --pathspec-from-file=
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git reset --hard f082b20
+HEAD is now at f082b20 first commit
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git reflog
+f082b20 (HEAD -> master) HEAD@{0}: reset: moving to f082b20
+8a8c7d3 HEAD@{1}: commit: second commit
+f082b20 (HEAD -> master) HEAD@{2}: commit (initial): first commit
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ cat hello.txt
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ vim hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ vim hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hello.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .swp
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git add hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git commit -m "third version" hello.txt
+[master 0b7cb32] third version
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .swp
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git flog
+git: 'flog' is not a git command. See 'git --help'.
+
+The most similar commands are
+        flow
+        reflog
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git reflog
+0b7cb32 (HEAD -> master) HEAD@{0}: commit: third version
+f082b20 HEAD@{1}: reset: moving to f082b20
+8a8c7d3 HEAD@{2}: commit: second commit
+f082b20 HEAD@{3}: commit (initial): first commit
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git reset --hard 8a8c7d3
+HEAD is now at 8a8c7d3 second commit
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git reflog
+8a8c7d3 (HEAD -> master) HEAD@{0}: reset: moving to 8a8c7d3
+0b7cb32 HEAD@{1}: commit: third version
+f082b20 HEAD@{2}: reset: moving to f082b20
+8a8c7d3 (HEAD -> master) HEAD@{3}: commit: second commit
+f082b20 HEAD@{4}: commit (initial): first commit
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git flog
+git: 'flog' is not a git command. See 'git --help'.
+
+The most similar commands are
+        flow
+        reflog
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git branch
+HEAD        ORIG_HEAD   master
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git branch hot-fix
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git branch -v
+  hot-fix 8a8c7d3 second commit
+* master  8a8c7d3 second commit
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ vim hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git che
+checkout      cherry        cherry-pick
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git checkout hot-fix
+Switched to branch 'hot-fix'
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ vim hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git status
+On branch hot-fix
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hello.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .swp
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git add
+.swp       hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git add hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git status
+On branch hot-fix
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   hello.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .swp
+
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git commit -m "hot-fix-first-commit" hello.txt
+[hot-fix 4413f71] hot-fix-first-commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ cat hello.txt
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc h
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello gi
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git reflog
+4413f71 (HEAD -> hot-fix) HEAD@{0}: commit: hot-fix-first-commit
+8a8c7d3 (master) HEAD@{1}: checkout: moving from master to hot-fix
+8a8c7d3 (master) HEAD@{2}: reset: moving to 8a8c7d3
+0b7cb32 HEAD@{3}: commit: third version
+f082b20 HEAD@{4}: reset: moving to f082b20
+8a8c7d3 (master) HEAD@{5}: commit: second commit
+f082b20 HEAD@{6}: commit (initial): first commit
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git checkout 'master'
+Switched to branch 'master'
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ cat hello.txt
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello gi
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git merge
+merge       mergetool
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git merge hot-fix
+Updating 8a8c7d3..4413f71
+Fast-forward
+ hello.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ cat hello.txt
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc h
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello gi
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ vim hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git add hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git commit -m "master test" hello.txt
+[master 44acfc9] master test
+ 1 file changed, 2 insertions(+)
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ cat
+.git/      .swp       hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ cat hello.txt
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc h
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello gi
+eeewew
+
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git checkout hot-fix
+Switched to branch 'hot-fix'
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ vim hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git add
+.swp       hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git add hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git commit -m "hot fix test" hello.txt
+[hot-fix 4a14ca3] hot fix test
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ git checkout master
+Switched to branch 'master'
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git merge hot-fix
+Auto-merging hello.txt
+CONFLICT (content): Merge conflict in hello.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   hello.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .swp
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master|MERGING)
+$ vim hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master|MERGING)
+$ git add hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master|MERGING)
+$ git commit -m "merge test" hello.txt
+fatal: cannot do a partial commit during a merge.
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master|MERGING)
+$ git co
+commit   config
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master|MERGING)
+$ git commit -m "merge test"
+[master d338e77] merge test
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ ll hello.txt
+-rw-r--r-- 1 丁超 197121 404 Mar 25 20:05 hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ cat hello.txt
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc h
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello
+hello dc hello gi hoy fix text
+
+
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git checkout
+HEAD        ORIG_HEAD   hot-fix     master
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (master)
+$ git checkout hot-fix
+Switched to branch 'hot-fix'
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ cat
+.git/      .swp       hello.txt
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
+$ cat hello.txt
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc h
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello git
+hello dc hello gi hoy fix text
+
+
+丁超@LAPTOP-P348DBQG MINGW64 /d/gitproject (hot-fix)
